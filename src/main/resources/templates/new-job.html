@@ -12,13 +12,13 @@
 
         <div class="form-group">
             <label th:for="name">Name</label>
-            <input th:field="*{name}" />
-            <div th:errors="*{name}"></div>
+            <input th:field="*{name}" id="name" name="name"/>
+            <div th:errors="*{name}" class="error"></div>
         </div>
 
         <div class="form-group">
             <label th:for="employerId">Employer</label>
-            <select th:field="*{employerId}">
+            <select th:field="*{employerId}" id="employers" name="employer">
                 <option th:each="employer : *{employers}"
                         th:value="${employer.id}"
                         th:text="${employer.value}"></option>
@@ -26,6 +26,33 @@
         </div>
 
         <!-- TODO #5 - Create <select> dropdowns for other job fields -->
+
+        <div class="form-group">
+            <label th:for="locationId">Locations</label>
+            <select th:field="*{locationId}" id="locations" name="location">
+                <option th:each="location : *{locations}"
+                        th:value="${location.id}"
+                        th:text="${location.value}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label th:for="coreCompetencyId">Core Competencies</label>
+            <select th:field="*{coreCompetencyId}" id="coreCompetencies" name="coreCompetency">
+                <option th:each="coreCompetency : *{coreCompetencies}"
+                        th:value="${coreCompetency.id}"
+                        th:text="${coreCompetency.value}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label th:for="positionTypeId">Position Types</label>
+            <select th:field="*{positionTypeId}" id="positionTypes" name="positionType">
+                <option th:each="positionType : *{positionTypes}"
+                        th:value="${positionType.id}"
+                        th:text="${positionType.value}"></option>
+            </select>
+        </div>
 
         <input type="submit" value="Add Job" />
     </form>
